@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamento de Sistema - Dra. Patricia Otake</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandGold: '#C5A059', 
+                        brandDark: '#2D2D2D', 
+                        brandBg: '#F9F7F2',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+        .custom-scroll::-webkit-scrollbar { width: 5px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 10px; }
+        
+        /* Destaque visual da aula ativa */
+        .aula-ativa {
+            border: 2px solid #C5A059 !important;
+            background-color: #fdfaf3 !important;
+        }
+    </style>
+</head>
+<body class="bg-brandBg text-brandDark">
+
+    <header class="bg-white border-b border-gray-200 py-4 shadow-sm">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brandGold rounded-full flex items-center justify-center text-white font-bold">PO</div>
+                <div>
+                    <h1 class="text-lg font-bold leading-tight uppercase tracking-widest text-brandDark">Dra. Patricia Otake</h1>
+                    <p class="text-xs text-brandGold font-semibold uppercase tracking-tighter">Treinamento de Sistemas</p>
+                </div>
+            </div>
+            <a href="https://www.otakefonoaudiologia.com.br/" target="_blank" class="hidden md:block text-sm font-medium hover:text-brandGold transition">Voltar ao Site Principal</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 px-4 pb-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <div class="lg:w-3/4">
+                <div class="bg-white p-2 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="video-container shadow-inner">
+                        <iframe id="mainPlayer" src="https://www.youtube.com/embed/RKlxtbzluQ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h2 id="videoTitle" class="text-2xl font-bold text-brandDark uppercase tracking-tight">Aula 01: Introdução ao Fluxo de Atendimento</h2>
+                    <div class="h-1 w-20 bg-brandGold mt-2 mb-4"></div>
+                    <p id="videoDesc" class="text-gray-600 leading-relaxed">
+                        Nesta aula explicaremos como configurar o sistema para otimizar os registros de pacientes e agendamentos clínicos.
+                    </p>
+                    
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <button class="bg-brandDark hover:bg-black text-white px-8 py-3 rounded-full text-sm font-bold transition shadow-lg uppercase">BAIXAR GUIA PDF</button>
+                        <button class="border-2 border-brandGold text-brandGold hover:bg-brandGold hover:text-white px-8 py-3 rounded-full text-sm font-bold transition uppercase">SUPORTE VIA WHATSAPP</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/4">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-brandDark p-4 text-center">
+                        <h3 class="text-white font-bold uppercase text-xs tracking-widest">Módulos do Curso</h3>
+                    </div>
+                    
+                    <div id="playlist-container" class="p-2 space-y-2 max-h-[600px] overflow-y-auto custom-scroll">
+                        
+                        <button onclick="changeVideo('RKlxtbzluQ8', 'Aula 01: Introdução ao Fluxo', 'Visão geral da interface e primeiros passos.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group aula-ativa">
+                            <div class="w-12 h-12 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center group-hover:bg-brandGold group-hover:text-white transition font-bold text-sm">01</div>
+                            <div class="flex flex-col justify-center">
+                                <span class="text-[10px] font-bold text-brandGold uppercase tracking-tighter">Módulo 1</span>
+                                <span class="text-sm font-bold text-gray-700">Configuração Inicial</span>
+                            </div>
+                        </button>
+
+                        <button onclick="changeVideo('jNQXAC9IVRw', 'Aula 02: Gestão de Pacientes', 'Como organizar o histórico clínico.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                            <div class="w-12 h-12 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center group-hover:bg-brandGold group-hover:text-white transition font-bold text-sm">02</div>
+                            <div class="flex flex-col justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-400">Módulo 1</span>
+                                <span class="text-sm font-semibold">Base de Dados</span>
+                            </div>
+                        </button>
+
+                        <button onclick="changeVideo('kJQP7kiw5Fk', 'Aula 03: Procedimentos', 'Registros técnicos e automações.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                            <div class="w-12 h-12 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center group-hover:bg-brandGold group-hover:text-white transition font-bold text-sm">03</div>
+                            <div class="flex flex-col justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-400">Módulo 2</span>
+                                <span class="text-sm font-semibold">Prática Clínica</span>
+                            </div>
+                        </button>
+
+                        <button onclick="changeVideo('9bZkp7q19f0', 'Aula 04: Financeiro', 'Gestão de convênios e faturamento.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                            <div class="w-12 h-12 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center group-hover:bg-brandGold group-hover:text-white transition font-bold text-sm">04</div>
+                            <div class="flex flex-col justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-400">Módulo 2</span>
+                                <span class="text-sm font-semibold">Faturamento</span>
+                            </div>
+                        </button>
+
+                        <button onclick="changeVideo('V-_O7nl0Ii0', 'Aula 05: Suporte', 'Finalização e ajuda técnica.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                            <div class="w-12 h-12 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center group-hover:bg-brandGold group-hover:text-white transition font-bold text-sm">05</div>
+                            <div class="flex flex-col justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-400">Módulo 3</span>
+                                <span class="text-sm font-semibold">Encerramento</span>
+                            </div>
+                        </button>
+
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-6 bg-brandGold rounded-2xl text-white">
+                    <h4 class="font-bold text-sm uppercase mb-2">Precisa de ajuda?</h4>
+                    <p class="text-xs opacity-90 mb-4">Dúvidas sobre o sistema? Entre em contato agora.</p>
+                    <a href="https://wa.me/5547989003114" target="_blank" class="block w-full text-center bg-white text-brandGold py-2 rounded-full font-bold text-xs uppercase hover:bg-gray-100 transition">Enviar Mensagem</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-10 text-gray-400 text-xs border-t border-gray-200 bg-white">
+        <p>© 2026 Dra. Patricia Sauri Otake • Brusque/SC</p>
+        <p class="mt-1 text-gray-300 uppercase tracking-widest font-bold">Desenvolvido por Lucas Picon</p>
+    </footer>
+
+    <script>
+        function changeVideo(id, title, desc, element) {
+            // Lógica que aceita ID, link de Shorts ou link comum e limpa tudo
+            const videoId = id.replace('https://www.youtube.com/shorts/', '').replace('https://www.youtube.com/watch?v=', '').split('&')[0].trim();
+            
+            // Monta o link de embed que o YouTube aceita em sites externos
+            const embedUrl = "https://www.youtube.com/embed/" + videoId + "?rel=0";
+            
+            document.getElementById('mainPlayer').src = embedUrl;
+            document.getElementById('videoTitle').innerText = title;
+            document.getElementById('videoDesc').innerText = desc;
+
+            // Controle visual da aula ativa
+            const botoes = document.querySelectorAll('.aula-item');
+            botoes.forEach(btn => btn.classList.remove('aula-ativa'));
+            element.classList.add('aula-ativa');
+
+            if(window.innerWidth < 1024) {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        }
+    </script>
+</body>
+</html>
