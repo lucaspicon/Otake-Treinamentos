@@ -32,7 +32,6 @@
         }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
         
-        /* Skeleton Screen */
         #skeleton-player {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 20; display: flex; align-items: center; justify-content: center;
@@ -51,7 +50,6 @@
         }
         .dark .aula-ativa { background-color: #1E293B !important; }
 
-        /* Spotify-like playing bars */
         .playing-bars { display: none; align-items: flex-end; gap: 2px; height: 12px; }
         .aula-ativa .playing-bars { display: flex; }
         .bar { background: #3B82F6; width: 3px; border-radius: 1px; animation: sound 0.5s infinite alternate; }
@@ -67,7 +65,6 @@
         
         #playlist-container { scroll-behavior: smooth; }
 
-        /* Extended FAB Notepad */
         #btn-notepad { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); width: auto; min-width: 56px; }
         #btn-notepad.scrolled { padding: 1rem; }
         #btn-notepad.scrolled span { display: none; }
@@ -88,13 +85,11 @@
             <div class="flex items-center gap-4">
                 <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition hover:scale-105" title="Alternar Tema">
                     <svg id="moonIcon" class="w-5 h-5 block dark:hidden text-slate-500" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-                    <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM4 10a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zM14 10a1 1 0 011-1h1a1 1 0 110 2h-1a1 1 0 01-1-1z"/></svg>
+                    <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z"/></svg>
                 </button>
                 <a href="https://www.otakefonoaudiologia.com.br/" class="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-brandAccent transition uppercase hover:scale-105">
                     <span>Voltar ao Site Principal</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
                 </a>
             </div>
         </div>
@@ -151,22 +146,21 @@
                             <p id="progressText" class="text-[10px] text-slate-400 mt-2 text-center font-bold uppercase tracking-widest text-white">0% Completo</p>
                         </div>
                         <div id="playlist-container" class="p-2 space-y-2 max-h-[400px] overflow-y-auto custom-scroll bg-white dark:bg-darkCard">
-
                             <button id="btn-l1xoMq329-o" data-video="l1xoMq329-o" data-title="Aula 01: Introdução ao Fluxo de Atendimento" data-desc="Nesta aula conhecerão um pouco mais sobre mim, formações, habilidades, trabalhos e o que pretendo ensinar durante esse pequeno curso. Prepare-se para aprender tudo que o TDSnap pode proporcionar para você e seus alunos." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left border border-transparent">
                                 <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm">
                                     <span class="numero-aula text-brandAccent font-black">01</span>
                                     <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
                                 </div>
-                                <div class="flex flex-col justify-center flex-1">
+                                <div class="flex flex-col justify-center flex-1 min-w-0">
                                     <span class="text-[10px] font-bold text-brandAccent uppercase">Módulo 1</span>
                                     <span class="text-sm font-bold dark:text-white leading-tight">Boas vindas ao curso</span>
                                 </div>
                                 <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
                             </button>
 
-                            <button id="btn-l1xoMq329-o" data-video="l1xoMq329-o" data-title="Aula 02: Gestão de Pacientes" data-desc="Como cadastrar e organizar o histórico clínico de forma eficiente dentro do novo portal." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
+                            <button id="btn-jNQXAC9IVRw" data-video="jNQXAC9IVRw" data-title="Aula 02: Gestão de Pacientes" data-desc="Como cadastrar e organizar o histórico clínico de forma eficiente dentro do novo portal." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
                                 <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">02</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
-                                <div class="flex flex-col justify-center flex-1">
+                                <div class="flex flex-col justify-center flex-1 min-w-0">
                                     <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 2</span>
                                     <span class="text-sm font-bold dark:text-white leading-tight">Conhecendo o aplicativo</span>
                                 </div>
@@ -175,7 +169,7 @@
 
                             <button id="btn-kJQP7kiw5Fk" data-video="kJQP7kiw5Fk" data-title="Aula 03: Procedimentos Clínicos" data-desc="Registrando exames e procedimentos de forma automatizada para agilizar o atendimento." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
                                 <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">03</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
-                                <div class="flex flex-col justify-center flex-1">
+                                <div class="flex flex-col justify-center flex-1 min-w-0">
                                     <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 3</span>
                                     <span class="text-sm font-bold dark:text-white leading-tight">Prrimeiros passos</span>
                                 </div>
@@ -184,7 +178,7 @@
 
                             <button id="btn-9bZkp7q19f0" data-video="9bZkp7q19f0" data-title="Aula 04: Financeiro e Guias" data-desc="Gestão de faturamento de guias e controle financeiro essencial para a saúde da clínica." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
                                 <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">04</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
-                                <div class="flex flex-col justify-center flex-1">
+                                <div class="flex flex-col justify-center flex-1 min-w-0">
                                     <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 4</span>
                                     <span class="text-sm font-bold dark:text-white leading-tight">Alterações e salvamentos</span>
                                 </div>
@@ -193,18 +187,9 @@
 
                             <button id="btn-V-_O7nl0Ii0" data-video="V-_O7nl0Ii0" data-title="Aula 05: Suporte e Encerramento" data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
                                 <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">05</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
-                                <div class="flex flex-col justify-center flex-1">
+                                <div class="flex flex-col justify-center flex-1 min-w-0">
                                     <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 5</span>
                                     <span class="text-sm font-bold dark:text-white leading-tight">Possiveis erros e o que fazer</span>
-                                </div>
-                                <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
-                            </button>
-
-                            <button id="btn-V-_O7nl0Ii0" data-video="V-_O7nl0Ii0" data-title="Aula 06: Suporte e Encerramento" data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">05</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
-                                <div class="flex flex-col justify-center flex-1">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 6</span>
-                                    <span class="text-sm font-bold dark:text-white leading-tight">Encerramento</span>
                                 </div>
                                 <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
                             </button>
@@ -221,16 +206,16 @@
         </div>
     </main>
 
-    <button id="btn-notepad" onclick="toggleNotepad()" class="fixed bottom-6 right-6 bg-brandAccent text-white h-14 px-5 rounded-full shadow-2xl z-[60] flex items-center gap-3 hover:scale-110 transition-all">
+    <button id="btn-notepad" onclick="toggleNotepad()" class="fixed bottom-6 right-6 bg-brandAccent text-white h-14 px-5 rounded-full shadow-2xl z-[60] flex items-center gap-3 hover:scale-110 transition-all active:scale-95">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
         <span class="font-bold uppercase text-xs tracking-widest whitespace-nowrap">Anotações</span>
     </button>
 
-    <div id="notepadModal" class="fixed inset-0 bg-black/40 backdrop-blur-md hidden items-center justify-center z-[70] p-4 transition-all">
-        <div class="bg-white/80 dark:bg-darkCard/80 backdrop-blur-lg w-full max-w-lg rounded-2xl p-6 shadow-2xl border border-white/20 dark:border-slate-700/50">
+    <div id="notepadModal" onclick="checkClickOutside(event)" class="fixed inset-0 bg-black/40 backdrop-blur-md hidden items-center justify-center z-[70] p-4 transition-all">
+        <div id="modalContent" class="bg-white/80 dark:bg-darkCard/80 backdrop-blur-lg w-full max-w-lg rounded-2xl p-6 shadow-2xl border border-white/20 dark:border-slate-700/50">
             <div class="flex justify-between items-center mb-4"><h3 class="font-bold uppercase text-sm dark:text-white">Meu Caderno</h3><button onclick="toggleNotepad()" class="text-red-500 font-bold hover:bg-red-50 px-3 py-1 rounded-lg">FECHAR</button></div>
             <textarea id="notepadContent" oninput="saveNotes()" class="w-full h-64 p-4 rounded-xl border border-gray-200/50 dark:border-slate-700/50 dark:bg-slate-900/50 dark:text-white outline-none focus:ring-2 focus:ring-brandAccent bg-white/50" placeholder="Escreva aqui suas anotações..."></textarea>
-            <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-tighter text-right">Salvo automaticamente</p>
+            <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-tighter text-right italic">Salvo automaticamente</p>
         </div>
     </div>
 
@@ -242,6 +227,7 @@
 
         let player;
         let videoAtualId = '';
+        let foiPausadoPeloModal = false;
         const listaAulas = Array.from(document.querySelectorAll('.aula-item'));
 
         function onYouTubeIframeAPIReady() {
@@ -270,18 +256,44 @@
             });
             loadNotes();
             setInterval(() => {
-                if(player && player.getPlayerState() === 1) {
+                if(player && typeof player.getPlayerState === 'function' && player.getPlayerState() === 1) {
                     localStorage.setItem('resume_' + videoAtualId, player.getCurrentTime());
                 }
             }, 5000);
         }
 
-        window.addEventListener('keydown', (e) => {
-            if(document.activeElement.tagName === 'TEXTAREA') return;
-            if(e.code === 'Space') { e.preventDefault(); player.getPlayerState() === 1 ? player.pauseVideo() : player.playVideo(); }
-            if(e.code === 'ArrowRight') player.seekTo(player.getCurrentTime() + 10);
-            if(e.code === 'ArrowLeft') player.seekTo(player.getCurrentTime() - 10);
-        });
+        function toggleNotepad() { 
+            const modal = document.getElementById('notepadModal');
+            const isHidden = modal.classList.contains('hidden');
+
+            if (isHidden) {
+                if (player && player.getPlayerState() === 1) {
+                    player.pauseVideo();
+                    foiPausadoPeloModal = true;
+                } else {
+                    foiPausadoPeloModal = false;
+                }
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                
+                const titulo = document.getElementById('videoTitle').innerText;
+                const textarea = document.getElementById('notepadContent');
+                if(!textarea.value.includes(titulo)) {
+                    textarea.value += `📌 NOTAS: ${titulo}\n----------------------------\n\n`;
+                    saveNotes();
+                }
+            } else {
+                if (foiPausadoPeloModal && player) {
+                    player.playVideo();
+                }
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function checkClickOutside(e) {
+            if (e.target.id === 'notepadModal') toggleNotepad();
+        }
 
         function selecionarAula(element, autoPlay = true) {
             videoAtualId = element.getAttribute('data-video');
@@ -330,25 +342,10 @@
 
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('btn-notepad');
-            window.scrollY > 80 ? btn.classList.add('scrolled') : btn.classList.remove('scrolled');
+            window.scrollY > 100 ? btn.classList.add('scrolled') : btn.classList.remove('scrolled');
         });
 
         function toggleDarkMode() { document.documentElement.classList.toggle('dark'); }
-        
-        function toggleNotepad() { 
-            const modal = document.getElementById('notepadModal');
-            modal.classList.toggle('hidden'); 
-            modal.classList.toggle('flex'); 
-            if(!modal.classList.contains('hidden')) {
-                const titulo = document.getElementById('videoTitle').innerText;
-                const textarea = document.getElementById('notepadContent');
-                if(!textarea.value.includes(titulo)) {
-                    textarea.value += `📌 NOTAS: ${titulo}\n----------------------------\n\n`;
-                    saveNotes();
-                }
-            }
-        }
-        
         function saveNotes() { localStorage.setItem('user_notes', document.getElementById('notepadContent').value); }
         function loadNotes() { document.getElementById('notepadContent').value = localStorage.getItem('user_notes') || ''; }
     </script>
