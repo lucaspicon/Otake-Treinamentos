@@ -40,14 +40,13 @@
         .custom-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 10px; }
         
-        /* Efeito de Visibilidade sugerido: Foco na aula atual */
+        /* Foco na aula atual */
         .aula-item {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
             opacity: 0.4;
             filter: grayscale(100%);
         }
-        
-        /* Aula ativa ou concluída ganha visibilidade total */
+
         .aula-ativa, .concluida {
             opacity: 1 !important;
             filter: grayscale(0%) !important;
@@ -81,7 +80,7 @@
                 <img src="logo.png" alt="Logo Dra. Patricia Otake" class="w-12 h-12 object-contain">
                 <div>
                     <h1 class="text-lg font-bold leading-tight uppercase tracking-widest text-brandBlue">Dra. Patricia Otake</h1>
-                    <p class="text-xs text-brandAccent font-semibold uppercase tracking-tighter text-brandAccent">Treinamento de Sistemas</p>
+                    <p class="text-xs text-brandAccent font-semibold uppercase tracking-tighter">Treinamento de Sistemas</p>
                 </div>
             </div>
             <a href="https://www.otakefonoaudiologia.com.br/" class="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-brandAccent transition uppercase">
@@ -99,7 +98,7 @@
             <div class="lg:w-3/4">
                 <div class="bg-white p-2 rounded-2xl shadow-sm border border-gray-100">
                     <div class="video-container shadow-inner">
-                        <iframe id="mainPlayer" src="https://www.youtube.com/embed/6x3aDrSWAlk?enablejsapi=1&rel=0" frameborder="0" allowfullscreen></iframe>
+                        <div id="mainPlayer"></div>
                     </div>
                 </div>
                 
@@ -129,13 +128,13 @@
 
             <div class="lg:w-1/4">
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden h-fit">
-                    <div class="bg-brandBlue p-4 text-center text-white">
-                        <h3 class="text-white font-bold uppercase text-xs tracking-widest">Módulos do Curso</h3>
+                    <div class="bg-brandBlue p-4 text-center">
+                        <h3 class="text-white font-bold uppercase text-xs tracking-widest text-white">Módulos do Curso</h3>
                     </div>
                     
                     <div id="playlist-container" class="p-2 space-y-2 max-h-[600px] overflow-y-auto custom-scroll">
                         
-                        <button id="btn-6x3aDrSWAlk" onclick="changeVideo('6x3aDrSWAlk', 'Aula 01: Introdução ao Fluxo', 'Visão geral da interface e primeiros passos.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                        <button id="btn-6x3aDrSWAlk" data-video="6x3aDrSWAlk" data-title="Aula 01: Introdução ao Fluxo de Atendimento" data-desc="Nesta aula explicaremos como configurar o sistema para otimizar os registros de pacientes e agendamentos clínicos." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent">
                             <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm">
                                 <span class="numero-aula text-brandAccent font-black">01</span>
                                 <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
@@ -146,47 +145,47 @@
                             </div>
                         </button>
 
-                        <button id="btn-jNQXAC9IVRw" onclick="changeVideo('jNQXAC9IVRw', 'Aula 02: Gestão de Pacientes', 'Como cadastrar e organizar o histórico clínico.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
-                            <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm">
-                                <span class="numero-aula text-slate-700">02</span>
+                        <button id="btn-jNQXAC9IVRw" data-video="jNQXAC9IVRw" data-title="Aula 02: Gestão de Pacientes" data-desc="Como cadastrar e organizar o histórico clínico." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent">
+                            <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
+                                <span class="numero-aula">02</span>
                                 <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
                             </div>
                             <div class="flex flex-col justify-center">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 1</span>
-                                <span class="text-sm font-bold text-brandBlue">Base de Dados</span>
+                                <span class="text-sm font-bold text-slate-700">Base de Dados</span>
                             </div>
                         </button>
 
-                        <button id="btn-kJQP7kiw5Fk" onclick="changeVideo('kJQP7kiw5Fk', 'Aula 03: Procedimentos Clínicos', 'Registrando exames de forma automatizada.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                        <button id="btn-kJQP7kiw5Fk" data-video="kJQP7kiw5Fk" data-title="Aula 03: Procedimentos Clínicos" data-desc="Registrando exames de forma automatizada." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent">
                             <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
                                 <span class="numero-aula">03</span>
                                 <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
                             </div>
                             <div class="flex flex-col justify-center">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 2</span>
-                                <span class="text-sm font-bold text-brandBlue">Procedimentos</span>
+                                <span class="text-sm font-bold text-slate-700">Procedimentos</span>
                             </div>
                         </button>
 
-                        <button id="btn-9bZkp7q19f0" onclick="changeVideo('9bZkp7q19f0', 'Aula 04: Financeiro', 'Gestão de faturamento de guias.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                        <button id="btn-9bZkp7q19f0" data-video="9bZkp7q19f0" data-title="Aula 04: Financeiro" data-desc="Gestão de faturamento de guias." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent">
                             <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
                                 <span class="numero-aula">04</span>
                                 <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
                             </div>
                             <div class="flex flex-col justify-center">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 2</span>
-                                <span class="text-sm font-bold text-brandBlue">Faturamento</span>
+                                <span class="text-sm font-bold text-slate-700">Faturamento</span>
                             </div>
                         </button>
 
-                        <button id="btn-V-_O7nl0Ii0" onclick="changeVideo('V-_O7nl0Ii0', 'Aula 05: Suporte', 'Como solicitar ajuda técnica.', this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent hover:border-gray-200 group">
+                        <button id="btn-V-_O7nl0Ii0" data-video="V-_O7nl0Ii0" data-title="Aula 05: Suporte" data-desc="Como solicitar ajuda técnica." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition text-left border border-transparent">
                             <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
                                 <span class="numero-aula">05</span>
                                 <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
                             </div>
                             <div class="flex flex-col justify-center">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 3</span>
-                                <span class="text-sm font-bold text-brandBlue">Encerramento</span>
+                                <span class="text-sm font-bold text-slate-700">Encerramento</span>
                             </div>
                         </button>
 
@@ -194,8 +193,8 @@
                 </div>
                 
                 <div class="mt-6 p-6 bg-brandBlue rounded-2xl text-white shadow-md border-b-4 border-brandAccent">
-                    <h4 class="font-bold text-sm uppercase mb-2">Precisa de ajuda?</h4>
-                    <p class="text-xs opacity-90 mb-4">Dúvidas sobre o sistema? Entre em contato agora.</p>
+                    <h4 class="font-bold text-sm uppercase mb-2 text-white">Precisa de ajuda?</h4>
+                    <p class="text-xs opacity-90 mb-4 text-white">Dúvidas sobre o sistema? Entre em contato agora.</p>
                     <a href="https://wa.me/5547989003114" target="_blank" class="block w-full text-center bg-brandAccent hover:bg-blue-400 text-white py-2 rounded-full font-bold text-xs uppercase transition shadow-md tracking-widest text-white">Enviar Mensagem</a>
                 </div>
             </div>
@@ -209,55 +208,59 @@
 
     <script>
         let player;
-        let videoAtualId = '6x3aDrSWAlk'; 
+        let videoAtualId = '';
+        const listaAulas = document.querySelectorAll('.aula-item');
 
-        // 1. Inicializa o controle do YouTube
+        // FUNÇÃO DE CARREGAMENTO INICIAL
         function onYouTubeIframeAPIReady() {
+            // 1. Carrega o que já foi concluído
+            atualizarProgressoVisual();
+            
             const concluidas = JSON.parse(localStorage.getItem('aulasConcluidas')) || [];
-            const botoes = document.querySelectorAll('.aula-item');
-            let aulaParaCarregar = botoes[0];
+            let aulaParaCarregar = listaAulas[0];
 
-            // Auto-Resume: Encontra a primeira aula não concluída
-            for (let btn of botoes) {
-                const id = btn.id.replace('btn-', '');
+            // 2. Auto-Resume: Encontra a primeira aula pendente
+            for (let btn of listaAulas) {
+                const id = btn.getAttribute('data-video');
                 if (!concluidas.includes(id)) {
                     aulaParaCarregar = btn;
                     break;
                 }
             }
-
-            // Ativa o clique na aula certa ao carregar
-            aulaParaCarregar.click();
-
+            
+            videoAtualId = aulaParaCarregar.getAttribute('data-video');
+            
+            // 3. Inicializa o player na aula certa
             player = new YT.Player('mainPlayer', {
+                height: '100%',
+                width: '100%',
+                videoId: videoAtualId,
+                playerVars: { 'rel': 0, 'modestbranding': 1, 'enablejsapi': 1 },
                 events: {
-                    'onStateChange': onPlayerStateChange
+                    'onStateChange': onPlayerStateChange,
+                    'onReady': () => selecionarAula(aulaParaCarregar, false)
                 }
             });
         }
 
-        // 2. Detecta quando o vídeo acaba
         function onPlayerStateChange(event) {
-            // Status 0 significa que o vídeo terminou
-            if (event.data == 0) {
-                const toggle = document.getElementById('toggleConcluir');
-                if (!toggle.checked) {
-                    toggle.checked = true;
-                    toggleConclusao();
-                }
+            if (event.data === YT.PlayerState.ENDED) {
+                document.getElementById('toggleConcluir').checked = true;
+                toggleConclusao();
             }
         }
 
-        function changeVideo(id, title, desc, element) {
-            videoAtualId = id; 
-            const cleanUrl = "https://www.youtube.com/embed/" + id.trim() + "?autoplay=1&rel=0&enablejsapi=1";
+        function selecionarAula(element, autoPlay = true) {
+            videoAtualId = element.getAttribute('data-video');
+            const title = element.getAttribute('data-title');
+            const desc = element.getAttribute('data-desc');
+
+            if (autoPlay && player) player.loadVideoById(videoAtualId);
             
-            document.getElementById('mainPlayer').src = cleanUrl;
             document.getElementById('videoTitle').innerText = title;
             document.getElementById('videoDesc').innerText = desc;
 
-            const botoes = document.querySelectorAll('.aula-item');
-            botoes.forEach(btn => btn.classList.remove('aula-ativa'));
+            listaAulas.forEach(btn => btn.classList.remove('aula-ativa'));
             element.classList.add('aula-ativa');
 
             atualizarToggle();
@@ -276,17 +279,19 @@
 
         function atualizarProgressoVisual() {
             const concluidas = JSON.parse(localStorage.getItem('aulasConcluidas')) || [];
-            const botoes = document.querySelectorAll('.aula-item');
-            botoes.forEach(btn => {
-                const id = btn.id.replace('btn-', '');
-                concluidas.includes(id) ? btn.classList.add('concluida') : btn.classList.remove('concluida');
+            listaAulas.forEach(btn => {
+                const id = btn.getAttribute('data-video');
+                if (concluidas.includes(id)) {
+                    btn.classList.add('concluida');
+                } else {
+                    btn.classList.remove('concluida');
+                }
             });
         }
 
         function atualizarToggle() {
             const concluidas = JSON.parse(localStorage.getItem('aulasConcluidas')) || [];
             document.getElementById('toggleConcluir').checked = concluidas.includes(videoAtualId);
-            atualizarProgressoVisual();
         }
     </script>
 </body>
