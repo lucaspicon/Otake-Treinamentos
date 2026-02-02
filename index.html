@@ -55,9 +55,7 @@
         .playing-bars { display: none; align-items: flex-end; gap: 2px; height: 12px; }
         .aula-ativa .playing-bars { display: flex; }
         .bar { background: #3B82F6; width: 3px; border-radius: 1px; animation: sound 0.5s infinite alternate; }
-        .bar1 { animation-delay: 0.1s; }
-        .bar2 { animation-delay: 0.3s; }
-        .bar3 { animation-delay: 0.2s; }
+        .bar1 { animation-delay: 0.1s; } .bar2 { animation-delay: 0.3s; } .bar3 { animation-delay: 0.2s; }
         @keyframes sound { 0% { height: 3px; } 100% { height: 12px; } }
 
         .check-icon { display: none; color: #10B981; }
@@ -69,9 +67,9 @@
         
         #playlist-container { scroll-behavior: smooth; }
 
-        /* Botão Notepad Expandido */
-        #btn-notepad { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        #btn-notepad.scrolled { width: 56px; border-radius: 50%; }
+        /* Extended FAB Notepad */
+        #btn-notepad { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); width: auto; min-width: 56px; }
+        #btn-notepad.scrolled { padding: 1rem; }
         #btn-notepad.scrolled span { display: none; }
     </style>
 </head>
@@ -146,84 +144,65 @@
                 <div class="sticky top-24 space-y-6">
                     <div class="bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
                         <div class="bg-brandBlue p-4">
-                            <h3 class="text-white font-bold uppercase text-xs tracking-widest text-center mb-3">Módulos do Curso</h3>
+                            <h3 class="text-white font-bold uppercase text-xs tracking-widest text-center mb-3">Progresso do Treinamento</h3>
                             <div class="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden">
                                 <div id="progressBar" class="bg-brandAccent h-full transition-all duration-500" style="width: 0%"></div>
                             </div>
                             <p id="progressText" class="text-[10px] text-slate-400 mt-2 text-center font-bold uppercase tracking-widest text-white">0% Completo</p>
                         </div>
                         <div id="playlist-container" class="p-2 space-y-2 max-h-[400px] overflow-y-auto custom-scroll bg-white dark:bg-darkCard">
-                            <button id="btn-6x3aDrSWAlk" data-video="6x3aDrSWAlk" data-title="Aula 01: Introdução ao Fluxo de Atendimento" data-desc="Nesta aula explicaremos como configurar o sistema para otimizar os registros de pacientes e agendamentos clínicos." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left border border-transparent">
+                            <button id="btn-6x3aDrSWAlk" data-video="6x3aDrSWAlk" data-title="Aula 01: Introdução ao Fluxo de Atendimento" data-desc="Nesta aula conhecerão um pouco mais sobre mim, formações, habilidades, trabalhos e o que pretendo ensinar durante esse pequeno curso. Prepare-se para aprender tudo que o TDSnap pode proporcionar para você e seus alunos." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left border border-transparent">
                                 <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm">
                                     <span class="numero-aula text-brandAccent font-black">01</span>
                                     <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
                                 </div>
                                 <div class="flex flex-col justify-center flex-1">
                                     <span class="text-[10px] font-bold text-brandAccent uppercase">Módulo 1</span>
-                                    <span class="text-sm font-bold dark:text-white leading-tight">Configuração Inicial</span>
+                                    <span class="text-sm font-bold dark:text-white leading-tight">Boas vindas ao curso</span>
                                 </div>
-                                <div class="playing-bars">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                    <div class="bar bar3"></div>
-                                </div>
+                                <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
                             </button>
 
                             <button id="btn-jNQXAC9IVRw" data-video="jNQXAC9IVRw" data-title="Aula 02: Gestão de Pacientes" data-desc="Como cadastrar e organizar o histórico clínico de forma eficiente dentro do novo portal." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">02</span>
-                                    <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                                </div>
+                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">02</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
                                 <div class="flex flex-col justify-center flex-1">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 1</span>
-                                    <span class="text-sm font-bold dark:text-white leading-tight">Base de Dados</span>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 2</span>
+                                    <span class="text-sm font-bold dark:text-white leading-tight">Conhecendo o aplicativo</span>
                                 </div>
                                 <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
                             </button>
 
                             <button id="btn-kJQP7kiw5Fk" data-video="kJQP7kiw5Fk" data-title="Aula 03: Procedimentos Clínicos" data-desc="Registrando exames e procedimentos de forma automatizada para agilizar o atendimento." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">03</span>
-                                    <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                                </div>
+                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">03</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
                                 <div class="flex flex-col justify-center flex-1">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 2</span>
-                                    <span class="text-sm font-bold dark:text-white leading-tight">Procedimentos</span>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 3</span>
+                                    <span class="text-sm font-bold dark:text-white leading-tight">Prrimeiros passos</span>
                                 </div>
                                 <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
                             </button>
 
                             <button id="btn-9bZkp7q19f0" data-video="9bZkp7q19f0" data-title="Aula 04: Financeiro e Guias" data-desc="Gestão de faturamento de guias e controle financeiro essencial para a saúde da clínica." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">04</span>
-                                    <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                                </div>
+                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">04</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
                                 <div class="flex flex-col justify-center flex-1">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 2</span>
-                                    <span class="text-sm font-bold dark:text-white leading-tight">Faturamento</span>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 4</span>
+                                    <span class="text-sm font-bold dark:text-white leading-tight">Alterações e salvamentos</span>
                                 </div>
                                 <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
                             </button>
 
                             <button id="btn-V-_O7nl0Ii0" data-video="V-_O7nl0Ii0" data-title="Aula 05: Suporte e Encerramento" data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">05</span>
-                                    <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                                </div>
+                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">05</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
                                 <div class="flex flex-col justify-center flex-1">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 3</span>
-                                    <span class="text-sm font-bold dark:text-white leading-tight">Encerramento</span>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 5</span>
+                                    <span class="text-sm font-bold dark:text-white leading-tight">Possiveis erros e o que fazer</span>
                                 </div>
                                 <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
                             </button>
 
                             <button id="btn-V-_O7nl0Ii0" data-video="V-_O7nl0Ii0" data-title="Aula 06: Suporte e Encerramento" data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema." onclick="selecionarAula(this)" class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">05</span>
-                                    <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                                </div>
+                                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700"><span class="numero-aula">05</span><svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
                                 <div class="flex flex-col justify-center flex-1">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Módulo 3</span>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Módulo 6</span>
                                     <span class="text-sm font-bold dark:text-white leading-tight">Encerramento</span>
                                 </div>
                                 <div class="playing-bars"><div class="bar bar1"></div><div class="bar bar2"></div><div class="bar bar3"></div></div>
@@ -231,9 +210,9 @@
                         </div>
                     </div>
                     
-                    <div class="mt-6 p-6 bg-brandBlue rounded-2xl text-white shadow-md border-b-4 border-brandAccent z-10 relative hover:scale-[1.02] transition duration-300">
+                    <div class="mt-6 p-6 bg-brandBlue rounded-2xl text-white shadow-md border-b-4 border-brandAccent z-10 relative hover:scale-[1.02] transition">
                         <h4 class="font-bold text-sm uppercase mb-2 text-white italic">Precisa de ajuda?</h4>
-                        <p class="text-xs opacity-90 mb-4 text-slate-300">Dúvidas sobre o sistema? Entre em contato agora.</p>
+                        <p class="text-xs opacity-90 mb-4 text-slate-300">Dúvidas sobre a aula? Entre em contato agora. ;)</p>
                         <a href="https://wa.me/5547989003114" target="_blank" class="block w-full text-center bg-brandAccent hover:bg-blue-400 text-white py-2 rounded-full font-bold text-xs uppercase transition shadow-md tracking-widest">Suporte WhatsApp</a>
                     </div>
                 </div>
@@ -241,15 +220,15 @@
         </div>
     </main>
 
-    <button id="btn-notepad" onclick="toggleNotepad()" class="fixed bottom-6 right-6 bg-brandAccent text-white h-14 px-5 rounded-full shadow-2xl z-[60] flex items-center gap-3 hover:scale-105 transition-all">
+    <button id="btn-notepad" onclick="toggleNotepad()" class="fixed bottom-6 right-6 bg-brandAccent text-white h-14 px-5 rounded-full shadow-2xl z-[60] flex items-center gap-3 hover:scale-110 transition-all">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
         <span class="font-bold uppercase text-xs tracking-widest whitespace-nowrap">Anotações</span>
     </button>
 
-    <div id="notepadModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[70] p-4">
-        <div class="bg-white dark:bg-darkCard w-full max-w-lg rounded-2xl p-6 shadow-2xl border dark:border-slate-700">
+    <div id="notepadModal" class="fixed inset-0 bg-black/40 backdrop-blur-md hidden items-center justify-center z-[70] p-4 transition-all">
+        <div class="bg-white/80 dark:bg-darkCard/80 backdrop-blur-lg w-full max-w-lg rounded-2xl p-6 shadow-2xl border border-white/20 dark:border-slate-700/50">
             <div class="flex justify-between items-center mb-4"><h3 class="font-bold uppercase text-sm dark:text-white">Meu Caderno</h3><button onclick="toggleNotepad()" class="text-red-500 font-bold hover:bg-red-50 px-3 py-1 rounded-lg">FECHAR</button></div>
-            <textarea id="notepadContent" oninput="saveNotes()" class="w-full h-64 p-4 rounded-xl border dark:border-slate-700 dark:bg-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-brandAccent" placeholder="Escreva aqui suas anotações..."></textarea>
+            <textarea id="notepadContent" oninput="saveNotes()" class="w-full h-64 p-4 rounded-xl border border-gray-200/50 dark:border-slate-700/50 dark:bg-slate-900/50 dark:text-white outline-none focus:ring-2 focus:ring-brandAccent bg-white/50" placeholder="Escreva aqui suas anotações..."></textarea>
             <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-tighter text-right">Salvo automaticamente</p>
         </div>
     </div>
@@ -273,11 +252,12 @@
                 height: '100%', width: '100%', videoId: videoAtualId,
                 playerVars: { 'rel': 0, 'modestbranding': 1, 'enablejsapi': 1 },
                 events: {
-                    'onReady': (event) => {
-                        // REMOVE SKELETON
+                    'onReady': () => {
                         document.getElementById('skeleton-player').style.display = 'none';
                         selecionarAula(aulaParaCarregar, false); 
                         atualizarProgressoVisual(); 
+                        const savedTime = localStorage.getItem('resume_' + videoAtualId);
+                        if(savedTime) player.seekTo(savedTime);
                     },
                     'onStateChange': (e) => { 
                         if (e.data === YT.PlayerState.ENDED) { 
@@ -288,7 +268,19 @@
                 }
             });
             loadNotes();
+            setInterval(() => {
+                if(player && player.getPlayerState() === 1) {
+                    localStorage.setItem('resume_' + videoAtualId, player.getCurrentTime());
+                }
+            }, 5000);
         }
+
+        window.addEventListener('keydown', (e) => {
+            if(document.activeElement.tagName === 'TEXTAREA') return;
+            if(e.code === 'Space') { e.preventDefault(); player.getPlayerState() === 1 ? player.pauseVideo() : player.playVideo(); }
+            if(e.code === 'ArrowRight') player.seekTo(player.getCurrentTime() + 10);
+            if(e.code === 'ArrowLeft') player.seekTo(player.getCurrentTime() - 10);
+        });
 
         function selecionarAula(element, autoPlay = true) {
             videoAtualId = element.getAttribute('data-video');
@@ -324,15 +316,10 @@
                 const id = btn.getAttribute('data-video');
                 concluidas.includes(id) ? btn.classList.add('concluida') : btn.classList.remove('concluida');
             });
-            
             const perc = Math.round((concluidas.length / listaAulas.length) * 100);
             document.getElementById('progressBar').style.width = perc + '%';
             document.getElementById('progressText').innerText = perc + '% Completo';
-
-            // DOPAMINA 100%
-            if (perc === 100) {
-                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
-            }
+            if (perc === 100) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
         }
 
         function atualizarToggle() {
@@ -340,18 +327,27 @@
             document.getElementById('toggleConcluir').checked = concluidas.includes(videoAtualId);
         }
 
-        // Lógica de Scroll do Notepad
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('btn-notepad');
-            if (window.scrollY > 50) {
-                btn.classList.add('scrolled');
-            } else {
-                btn.classList.remove('scrolled');
-            }
+            window.scrollY > 80 ? btn.classList.add('scrolled') : btn.classList.remove('scrolled');
         });
 
         function toggleDarkMode() { document.documentElement.classList.toggle('dark'); }
-        function toggleNotepad() { document.getElementById('notepadModal').classList.toggle('hidden'); document.getElementById('notepadModal').classList.toggle('flex'); }
+        
+        function toggleNotepad() { 
+            const modal = document.getElementById('notepadModal');
+            modal.classList.toggle('hidden'); 
+            modal.classList.toggle('flex'); 
+            if(!modal.classList.contains('hidden')) {
+                const titulo = document.getElementById('videoTitle').innerText;
+                const textarea = document.getElementById('notepadContent');
+                if(!textarea.value.includes(titulo)) {
+                    textarea.value += `📌 NOTAS: ${titulo}\n----------------------------\n\n`;
+                    saveNotes();
+                }
+            }
+        }
+        
         function saveNotes() { localStorage.setItem('user_notes', document.getElementById('notepadContent').value); }
         function loadNotes() { document.getElementById('notepadContent').value = localStorage.getItem('user_notes') || ''; }
     </script>
