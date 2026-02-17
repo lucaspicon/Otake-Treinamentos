@@ -196,7 +196,7 @@
             </div>
 
             <div class="flex items-center gap-2 md:gap-4 flex-shrink-0">
-                <button onclick="toggleDarkMode()"
+                <button onclick="toggleDarkMode()" aria-label="Alternar entre modo claro e escuro"
                     class="p-1 md:p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition active:scale-90"
                     title="Alternar Tema">
                     <svg id="moonIcon" class="w-4 h-4 md:w-5 md:h-5 block dark:hidden text-slate-500"
@@ -277,7 +277,7 @@
 
                     <div class="mt-8 flex flex-wrap gap-4 justify-between border-t dark:border-slate-700 pt-6">
                         <div class="flex gap-2">
-                            <button onclick="navegarAula(-1)"
+                            <button onclick="navegarAula(-1) " ria-label="Ir para a aula anterior"
                                 class="bg-slate-100 dark:bg-slate-800 hover:bg-brandAccent hover:text-white text-slate-600 dark:text-slate-300 px-4 py-2 rounded-lg text-xs font-bold uppercase transition flex items-center gap-2 hover:scale-105 shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -305,173 +305,194 @@
                 <div class="sticky top-24 space-y-6">
                     <div
                         class="bg-white dark:bg-darkCard rounded-2xl shadow-xl shadow-slate-200/60 dark:shadow-none border border-gray-100 dark:border-slate-700 overflow-hidden">
+
                         <div class="bg-brandBlue p-4">
-                            <h3 class="text-white font-bold uppercase text-xs tracking-widest text-center mb-3">
-                                Progresso do Treinamento</h3>
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-white font-bold uppercase text-xs tracking-widest">
+                                    Progresso do Treinamento
+                                </h3>
+                                <button onclick="toggleMobilePlaylist()" class="lg:hidden text-white p-1"
+                                    aria-label="Expandir ou recolher lista">
+                                    <svg id="playlistChevron" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5 transition-transform duration-300" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                            </div>
                             <div class="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden">
                                 <div id="progressBar" class="bg-brandAccent h-full transition-all duration-500"
                                     style="width: 0%"></div>
                             </div>
                             <p id="progressText"
                                 class="text-[10px] text-slate-400 mt-2 text-center font-bold uppercase tracking-widest text-white">
-                                0% Completo</p>
+                                0% Completo
+                            </p>
                         </div>
 
-                        <div class="p-3 bg-gray-50/50 dark:bg-slate-900/50 border-b dark:border-slate-700">
-                            <div class="relative">
-                                <input type="text" oninput="filtrarAulas(this.value)" placeholder="Buscar aula..."
-                                    class="w-full bg-white dark:bg-darkCard border border-gray-200 dark:border-slate-700 rounded-lg py-2 pl-9 pr-4 text-xs outline-none focus:ring-2 focus:ring-brandAccent transition-all dark:text-white" />
-                                <svg class="w-4 h-4 absolute left-3 top-2.5 text-slate-400" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
+                        <div id="playlistContent" class="hidden lg:block">
+
+                            <div class="p-3 bg-gray-50/50 dark:bg-slate-900/50 border-b dark:border-slate-700">
+                                <div class="relative">
+                                    <input type="text" oninput="filtrarAulas(this.value)" placeholder="Buscar aula..."
+                                        aria-label="Filtrar lista de aulas"
+                                        class="w-full bg-white dark:bg-darkCard border border-gray-200 dark:border-slate-700 rounded-lg py-2 pl-9 pr-4 text-xs outline-none focus:ring-2 focus:ring-brandAccent transition-all dark:text-white" />
+                                    <svg class="w-4 h-4 absolute left-3 top-2.5 text-slate-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
 
-                        <div id="playlist-container"
-                            class="p-2 space-y-2 max-h-[400px] overflow-y-auto custom-scroll bg-white dark:bg-darkCard">
-                            <button id="btn-l1xoMq329-o" data-video="l1xoMq329-o"
-                                data-title="Aula 01: Informacoes e boas vindas"
-                                data-desc="Nesta aula conhecerão um pouco mais sobre mim, formações, habilidades, trabalhos e o que pretendo ensinar durante esse pequeno curso. Prepare-se para aprender tudo que o TDSnap pode proporcionar para você e seus alunos."
-                                onclick="selecionarAula(this)"
-                                class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left border border-transparent">
-                                <div
-                                    class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm">
-                                    <span class="numero-aula text-brandAccent font-black">01</span><svg
-                                        class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col justify-center flex-1 min-w-0"><span
-                                        class="text-[10px] font-bold text-brandAccent uppercase">Módulo 1</span><span
-                                        class="text-sm font-bold dark:text-white leading-tight">Boas vindas ao
-                                        curso</span></div>
-                                <div class="playing-bars">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                    <div class="bar bar3"></div>
-                                </div>
-                            </button>
+                            <div id="playlist-container"
+                                class="p-2 space-y-2 max-h-[400px] overflow-y-auto custom-scroll bg-white dark:bg-darkCard">
 
-                            <button id="btn-jNQXAC9IVRw" data-video="jNQXAC9IVRw"
-                                data-title="Aula 02: Gestão de Pacientes"
-                                data-desc="Como cadastrar e organizar o histórico clínico de forma eficiente dentro do novo portal."
-                                onclick="selecionarAula(this)"
-                                class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div
-                                    class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">02</span><svg class="check-icon w-6 h-6"
-                                        fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col justify-center flex-1 min-w-0"><span
-                                        class="text-[10px] font-bold text-slate-400 uppercase">Módulo 2</span><span
-                                        class="text-sm font-bold dark:text-white leading-tight">Conhecendo o
-                                        aplicativo</span></div>
-                                <div class="playing-bars">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                    <div class="bar bar3"></div>
-                                </div>
-                            </button>
+                                <button id="btn-l1xoMq329-o" data-video="l1xoMq329-o"
+                                    data-title="Aula 01: Informacoes e boas vindas"
+                                    data-desc="Nesta aula conhecerão um pouco mais sobre mim, formações, habilidades, trabalhos e o que pretendo ensinar durante esse pequeno curso. Prepare-se para aprender tudo que o TDSnap pode proporcionar para você e seus alunos."
+                                    onclick="selecionarAula(this)"
+                                    class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left border border-transparent">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm">
+                                        <span class="numero-aula text-brandAccent font-black">01</span>
+                                        <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col justify-center flex-1 min-w-0"><span
+                                            class="text-[10px] font-bold text-brandAccent uppercase">Módulo
+                                            1</span><span class="text-sm font-bold dark:text-white leading-tight">Boas
+                                            vindas ao curso</span></div>
+                                    <div class="playing-bars">
+                                        <div class="bar bar1"></div>
+                                        <div class="bar bar2"></div>
+                                        <div class="bar bar3"></div>
+                                    </div>
+                                </button>
 
-                            <button id="btn-iUCsxGpZ-bw" data-video="iUCsxGpZ-bw"
-                                data-title="Aula 03: Procedimentos Clínicos"
-                                data-desc="Registrando exames e procedimentos de forma automatizada para agilizar o atendimento."
-                                onclick="selecionarAula(this)"
-                                class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div
-                                    class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">03</span><svg class="check-icon w-6 h-6"
-                                        fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col justify-center flex-1 min-w-0"><span
-                                        class="text-[10px] font-bold text-slate-400 uppercase">Módulo 3</span><span
-                                        class="text-sm font-bold dark:text-white leading-tight">Prrimeiros passos</span>
-                                </div>
-                                <div class="playing-bars">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                    <div class="bar bar3"></div>
-                                </div>
-                            </button>
+                                <button id="btn-jNQXAC9IVRw" data-video="jNQXAC9IVRw"
+                                    data-title="Aula 02: Gestão de Pacientes"
+                                    data-desc="Como cadastrar e organizar o histórico clínico de forma eficiente dentro do novo portal."
+                                    onclick="selecionarAula(this)"
+                                    class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
+                                        <span class="numero-aula">02</span>
+                                        <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col justify-center flex-1 min-w-0"><span
+                                            class="text-[10px] font-bold text-slate-400 uppercase">Módulo 2</span><span
+                                            class="text-sm font-bold dark:text-white leading-tight">Conhecendo o
+                                            aplicativo</span></div>
+                                    <div class="playing-bars">
+                                        <div class="bar bar1"></div>
+                                        <div class="bar bar2"></div>
+                                        <div class="bar bar3"></div>
+                                    </div>
+                                </button>
 
-                            <button id="btn-9bZkp7q19f0" data-video="9bZkp7q19f0"
-                                data-title="Aula 04: Financeiro e Guias"
-                                data-desc="Gestão de faturamento de guias e controle financeiro essencial para a saúde da clínica."
-                                onclick="selecionarAula(this)"
-                                class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div
-                                    class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">04</span><svg class="check-icon w-6 h-6"
-                                        fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col justify-center flex-1 min-w-0"><span
-                                        class="text-[10px] font-bold text-slate-400 uppercase">Módulo 4</span><span
-                                        class="text-sm font-bold dark:text-white leading-tight">Alterações e
-                                        salvamentos</span></div>
-                                <div class="playing-bars">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                    <div class="bar bar3"></div>
-                                </div>
-                            </button>
+                                <button id="btn-iUCsxGpZ-bw" data-video="iUCsxGpZ-bw"
+                                    data-title="Aula 03: Procedimentos Clínicos"
+                                    data-desc="Registrando exames e procedimentos de forma automatizada para agilizar o atendimento."
+                                    onclick="selecionarAula(this)"
+                                    class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
+                                        <span class="numero-aula">03</span>
+                                        <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col justify-center flex-1 min-w-0"><span
+                                            class="text-[10px] font-bold text-slate-400 uppercase">Módulo 3</span><span
+                                            class="text-sm font-bold dark:text-white leading-tight">Primeiros
+                                            passos</span></div>
+                                    <div class="playing-bars">
+                                        <div class="bar bar1"></div>
+                                        <div class="bar bar2"></div>
+                                        <div class="bar bar3"></div>
+                                    </div>
+                                </button>
 
-                            <button id="btn-V-_O7nl0Ii0" data-video="V-_O7nl0Ii0" data-title="Aula 05: Suporte"
-                                data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema."
-                                onclick="selecionarAula(this)"
-                                class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div
-                                    class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">05</span><svg class="check-icon w-6 h-6"
-                                        fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col justify-center flex-1 min-w-0"><span
-                                        class="text-[10px] font-bold text-slate-400 uppercase">Módulo 5</span><span
-                                        class="text-sm font-bold dark:text-white leading-tight">Possiveis erros e o que
-                                        fazer</span></div>
-                                <div class="playing-bars">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                    <div class="bar bar3"></div>
-                                </div>
-                            </button>
+                                <button id="btn-9bZkp7q19f0" data-video="9bZkp7q19f0"
+                                    data-title="Aula 04: Financeiro e Guias"
+                                    data-desc="Gestão de faturamento de guias e controle financeiro essencial para a saúde da clínica."
+                                    onclick="selecionarAula(this)"
+                                    class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
+                                        <span class="numero-aula">04</span>
+                                        <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col justify-center flex-1 min-w-0"><span
+                                            class="text-[10px] font-bold text-slate-400 uppercase">Módulo 4</span><span
+                                            class="text-sm font-bold dark:text-white leading-tight">Alterações e
+                                            salvamentos</span></div>
+                                    <div class="playing-bars">
+                                        <div class="bar bar1"></div>
+                                        <div class="bar bar2"></div>
+                                        <div class="bar bar3"></div>
+                                    </div>
+                                </button>
 
-                            <button id="btn-V-SM5rOFK6Wck" data-video="V-SM5rOFK6Wck" data-title="Aula 06: Encerramento"
-                                data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema."
-                                onclick="selecionarAula(this)"
-                                class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
-                                <div
-                                    class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
-                                    <span class="numero-aula">06</span><svg class="check-icon w-6 h-6"
-                                        fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col justify-center flex-1 min-w-0"><span
-                                        class="text-[10px] font-bold text-slate-400 uppercase">Módulo 6</span><span
-                                        class="text-sm font-bold dark:text-white leading-tight">Encerramento e
-                                        agradecimentos</span></div>
-                                <div class="playing-bars">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                    <div class="bar bar3"></div>
-                                </div>
-                            </button>
+                                <button id="btn-V-_O7nl0Ii0" data-video="V-_O7nl0Ii0" data-title="Aula 05: Suporte"
+                                    data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema."
+                                    onclick="selecionarAula(this)"
+                                    class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
+                                        <span class="numero-aula">05</span>
+                                        <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col justify-center flex-1 min-w-0"><span
+                                            class="text-[10px] font-bold text-slate-400 uppercase">Módulo 5</span><span
+                                            class="text-sm font-bold dark:text-white leading-tight">Possíveis erros e o
+                                            que fazer</span></div>
+                                    <div class="playing-bars">
+                                        <div class="bar bar1"></div>
+                                        <div class="bar bar2"></div>
+                                        <div class="bar bar3"></div>
+                                    </div>
+                                </button>
+
+                                <button id="btn-V-SM5rOFK6Wck" data-video="V-SM5rOFK6Wck"
+                                    data-title="Aula 06: Encerramento"
+                                    data-desc="Como solicitar ajuda técnica e considerações finais sobre o uso do novo sistema."
+                                    onclick="selecionarAula(this)"
+                                    class="aula-item w-full flex gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition text-left">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-sm text-slate-700">
+                                        <span class="numero-aula">06</span>
+                                        <svg class="check-icon w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col justify-center flex-1 min-w-0"><span
+                                            class="text-[10px] font-bold text-slate-400 uppercase">Módulo 6</span><span
+                                            class="text-sm font-bold dark:text-white leading-tight">Encerramento e
+                                            agradecimentos</span></div>
+                                    <div class="playing-bars">
+                                        <div class="bar bar1"></div>
+                                        <div class="bar bar2"></div>
+                                        <div class="bar bar3"></div>
+                                    </div>
+                                </button>
+
+                            </div>
                         </div>
                     </div>
 
@@ -483,13 +504,19 @@
                         <a href="https://wa.me/5547989003114" target="_blank"
                             class="block w-full text-center bg-brandAccent hover:bg-blue-400 text-white py-2 rounded-full font-bold text-xs uppercase transition shadow-md tracking-widest">Suporte
                             WhatsApp</a>
+                        <div id="area-certificado" class="hidden mt-4">
+                            <button onclick="prepararCertificado()"
+                                class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-full shadow-lg transition-all uppercase text-xs tracking-widest">
+                                🎓 Emitir Meu Certificado
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <button id="btn-notepad" onclick="toggleNotepad()"
+    <button id="btn-notepad" onclick="toggleNotepad()" aria-label="Abrir caderno de anotações"
         class="fixed bottom-6 right-6 bg-brandAccent text-white h-14 px-5 rounded-full shadow-2xl z-[60] flex items-center gap-3 hover:scale-110 transition-all active:scale-95">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
@@ -623,6 +650,7 @@
             if (autoPlay && player) player.loadVideoById(videoAtualId);
             document.getElementById('videoTitle').innerText = element.getAttribute('data-title');
             document.getElementById('videoDesc').innerText = element.getAttribute('data-desc');
+            loadNotes();
             listaAulas.forEach(btn => btn.classList.remove('aula-ativa'));
             element.classList.add('aula-ativa');
             element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -654,6 +682,11 @@
             const perc = Math.round((concluidas.length / listaAulas.length) * 100);
             document.getElementById('progressBar').style.width = perc + '%';
             document.getElementById('progressText').innerText = perc + '% Completo';
+            const btnCertificado = document.getElementById('area-certificado');
+            if (perc === 100) {
+                btnCertificado.classList.remove('hidden'); // Mostra o botão
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            }
             if (perc === 100) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
         }
 
@@ -672,8 +705,15 @@
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
 
-        function saveNotes() { localStorage.setItem('user_notes', document.getElementById('notepadContent').value); }
-        function loadNotes() { document.getElementById('notepadContent').value = localStorage.getItem('user_notes') || ''; }
+        function saveNotes() {
+            const notes = document.getElementById('notepadContent').value;
+            // Salvamos com uma chave única por vídeo, ex: notes_l1xoMq329-o
+            localStorage.setItem('notes_' + videoAtualId, notes);
+        }
+        function loadNotes() {
+            const savedNotes = localStorage.getItem('notes_' + videoAtualId) || '';
+            document.getElementById('notepadContent').value = savedNotes;
+        }
 
         function marcarTempo() {
             if (!player || typeof player.getCurrentTime !== 'function') return;
@@ -708,7 +748,23 @@
                 if (player) { player.seekTo(tempoParaPular, true); player.playVideo(); foiPausadoPeloModal = true; }
             }
         }
+
+        function toggleMobilePlaylist() {
+            const content = document.getElementById('playlistContent');
+            const chevron = document.getElementById('playlistChevron');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+
+
     </script>
+
 </body>
 
 </html>
