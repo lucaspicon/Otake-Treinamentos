@@ -228,6 +228,18 @@
             line-height: 1.7;
             font-family: 'Inter', sans-serif;
         }
+
+        .welcome-quote {
+            border-left: 4px solid #3B82F6;
+            padding-left: 1rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+            color: #1E293B;
+        }
+
+        .dark .welcome-quote {
+            color: #F1F5F9;
+        }
     </style>
 </head>
 
@@ -442,15 +454,14 @@
                             <div id="playlist-container"
                                 class="p-2 space-y-2 max-h-[400px] overflow-y-auto custom-scroll bg-white dark:bg-darkCard">
                                 <!-- aulas -->
-                                <button id="btn-00000000000" data-video="00000000000"
-                                    data-title="Boas vindas e apresentacao do curso"
-                                    data-desc="Nesta aula conhecerão um pouco mais sobre mim..."
+                                <button id="btn-tqqRS9j1nY0" data-video="tqqRS9j1nY0"
+                                    data-title="Boas vindas e apresentacao do curso" data-desc="introducao1"
                                     onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
 
                                     <div
                                         class="relative w-24 h-14 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-200 dark:border-slate-600">
-                                        <img src="https://img.youtube.com/vi/00000000000/mqdefault.jpg" alt="Thumbnail"
+                                        <img src="https://img.youtube.com/vi/tqqRS9j1nY0/mqdefault.jpg" alt="Thumbnail"
                                             class="w-full h-full object-cover">
 
                                         <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -765,6 +776,27 @@
     </div>
 
     <script>
+
+        const descricoesAulas = {
+            "introducao1": `
+        <div class="space-y-4 text-slate-600 dark:text-slate-400">
+            <p>Olá, professores da <strong>APAE de Brusque!</strong></p>
+            <p>Sejam muito bem-vindos(as) ao nosso curso de Comunicação Alternativa. É um prazer recebê-los nesta plataforma de formação continuada.</p>
+            
+            <div class="border-l-4 border-brandAccent pl-4 my-6 italic text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-900/50 py-2">
+                "Obrigado por aceitar o desafio de ser a ponte entre o silêncio e a expressão. Vamos juntos construir caminhos para que cada um de nossos usuários da APAE Brusque possa dizer ao mundo: <strong>Eu estou aqui e eu tenho algo a dizer</strong>."
+            </div>
+            
+            <p>A Comunicação Alternativa e Ampliada (CAA) é um direito fundamental. Nosso objetivo aqui é instrumentalizar sua prática pedagógica, explorando desde sistemas de baixa tecnologia até soluções digitais que potencializam a autonomia dos alunos com dificuldades de fala e linguagem.</p>
+            
+            <p>Ao longo dos módulos, vamos compreender o que é CAA, as ferramentas disponíveis e também seu uso na prática.</p>
+            
+            <p class="font-bold text-brandAccent text-lg mt-6">Vamos começar essa jornada? Pois onde há comunicação, há liberdade!</p>
+        </div>
+    `,
+            "aula01": "Texto da aula 01 aqui...",
+            // Adicione as outras conforme precisar
+        };
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -897,8 +929,17 @@
         function selecionarAula(element, autoPlay = true) {
             videoAtualId = element.getAttribute('data-video');
             if (autoPlay && player) player.loadVideoById(videoAtualId);
+
             document.getElementById('videoTitle').innerText = element.getAttribute('data-title');
-            document.getElementById('videoDesc').innerText = element.getAttribute('data-desc');
+
+            // Pega a chave (ex: "introducao")
+            const chaveDescricao = element.getAttribute('data-desc');
+
+            // Busca o texto formatado no nosso objeto descricoesAulas
+            const textoFormatado = descricoesAulas[chaveDescricao] || "Descrição não encontrada.";
+
+            document.getElementById('videoDesc').innerHTML = textoFormatado;
+
             loadNotes();
             listaAulas.forEach(btn => btn.classList.remove('aula-ativa'));
             element.classList.add('aula-ativa');
