@@ -365,17 +365,20 @@
                             <div>
                                 <p
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">
-                                    Material de Apoio</p>
-                                <button
-                                    class="text-sm font-bold text-brandBlue dark:text-white hover:text-brandAccent transition flex items-center gap-1 group">
-                                    Baixar Guia Prático (PDF)
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="h-4 w-4 transform group-hover:translate-y-0.5 transition" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                    </svg>
-                                </button>
+                                    Material de Apoio
+                                </p>
+                                <a id="linkDownloadPDF" href="#" download class="block">
+                                    <button
+                                        class="text-sm font-bold text-brandBlue dark:text-white hover:text-brandAccent transition flex items-center gap-1 group">
+                                        Baixar Guia Prático (PDF)
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-4 w-4 transform group-hover:translate-y-0.5 transition" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                        </svg>
+                                    </button>
+                                </a>
                             </div>
                         </div>
 
@@ -456,7 +459,7 @@
                                 <!-- aulas -->
                                 <button id="btn-tqqRS9j1nY0" data-video="tqqRS9j1nY0"
                                     data-title="Boas vindas e apresentação do curso" data-desc="introducao1"
-                                    onclick="selecionarAula(this)"
+                                    data-pdf="pdfs/Asterics Grid - Boas Vindas.pdf" onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
 
                                     <div
@@ -485,7 +488,7 @@
                                     <div class="flex flex-col justify-center flex-1 min-w-0">
                                         <span
                                             class="text-[9px] font-bold text-brandAccent uppercase tracking-tighter">Apresentacoes</span>
-                                        <span class="text-xs font-bold dark:text-white leading-tight line-clamp-2">Boas
+                                        <span class="text-xs font-bold dark:text-white leading-tight line-clamp-2">ASTERICS GRID - Boas
                                             vindas ao curso</span>
                                     </div>
                                 </button>
@@ -493,7 +496,7 @@
                                 <button id="btn-p75xFDRhWts" data-video="p75xFDRhWts"
                                     data-title="ASTERICS GRID - Conhecendo a ferramenta"
                                     data-desc="Nesta aula conhecerão um pouco mais sobre mim..."
-                                    onclick="selecionarAula(this)"
+                                    data-pdf="pdfs/Astericis Grid - Aula 1.pdf" onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
 
                                     <div
@@ -531,6 +534,7 @@
 
                                 <button id="btn-6-P4mFB_x9I" data-video="6-P4mFB_x9I"
                                     data-title="ASTERICS GRID - Criando Pranchas"
+                                    data-pdf="pdfs/Astericis Grid - Aula 2.pdf"
                                     data-desc="Nesta aula conhecerão um pouco mais sobre mim..."
                                     onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
@@ -570,6 +574,7 @@
 
                                 <button id="btn-kzPvjQU88T0" data-video="kzPvjQU88T0"
                                     data-title="Aula 03: Informacoes e boas vindas"
+                                    data-pdf="pdfs/Astericis Grid - Aula 3.pdf"
                                     data-desc="Nesta aula conhecerão um pouco mais sobre mim..."
                                     onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
@@ -609,6 +614,7 @@
 
                                 <button id="btn-kw0JNC79_OY" data-video="kw0JNC79_OY"
                                     data-title="Aula 01: Informacoes e boas vindas"
+                                    data-pdf="pdfs/Astericis Grid - Aula 4.pdf"
                                     data-desc="Nesta aula conhecerão um pouco mais sobre mim..."
                                     onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
@@ -648,6 +654,7 @@
 
                                 <button id="btn-V5dd_CW9qr4" data-video="V5dd_CW9qr4"
                                     data-title="Aula 01: Informacoes e boas vindas"
+                                    data-pdf="pdfs/Astericis Grid - Aula 5.pdf"
                                     data-desc="Nesta aula conhecerão um pouco mais sobre mim..."
                                     onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
@@ -687,6 +694,7 @@
 
                                 <button id="btn-ML7hgEaOUvs" data-video="ML7hgEaOUvs"
                                     data-title="Aula 01: Informacoes e boas vindas"
+                                    data-pdf="pdfs/Astericis Grid - Aula 6.pdf"
                                     data-desc="Nesta aula conhecerão um pouco mais sobre mim..."
                                     onclick="selecionarAula(this)"
                                     class="aula-item w-full flex gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition text-left border border-transparent group">
@@ -723,6 +731,7 @@
                                             GRID - Utilizando o tablet como comunicador</span>
                                     </div>
                                 </button>
+
                             </div>
                         </div>
                     </div>
@@ -973,12 +982,18 @@
 
             document.getElementById('videoTitle').innerText = element.getAttribute('data-title');
 
-            // Pega a chave (ex: "introducao")
+            // --- LÓGICA DO PDF ---
+            const pdfUrl = element.getAttribute('data-pdf');
+            const linkDownload = document.getElementById('linkDownloadPDF');
+
+            if (pdfUrl && pdfUrl !== "") {
+                linkDownload.href = pdfUrl;
+                linkDownload.style.display = "block";
+            } else {
+                linkDownload.style.display = "none";
+            }
             const chaveDescricao = element.getAttribute('data-desc');
-
-            // Busca o texto formatado no nosso objeto descricoesAulas
             const textoFormatado = descricoesAulas[chaveDescricao] || "Descrição não encontrada.";
-
             document.getElementById('videoDesc').innerHTML = textoFormatado;
 
             loadNotes();
