@@ -249,6 +249,21 @@
 
 <body class="bg-brandBg dark:bg-darkBg text-brandBlue dark:text-slate-200 antialiased transition-colors duration-300">
 
+    <div id="splash-screen"
+        class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-brandBlue transition-opacity duration-700">
+        <div class="relative">
+            <img src="/img/logo1.png" alt="Logo" class="w-48 h-48 md:w-64 md:h-64 animate-pulse">
+            <div class="absolute inset-0 bg-brandAccent/20 blur-3xl rounded-full animate-ping"></div>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center">
+            <h2 class="text-white font-light uppercase tracking-[0.4em] text-xs opacity-80">Carregando Conhecimento</h2>
+            <div class="w-32 h-1 bg-slate-700 rounded-full mt-4 overflow-hidden">
+                <div class="h-full bg-brandAccent bg-shimmer" style="width: 100%"></div>
+            </div>
+        </div>
+    </div>
+
     <header
         class="bg-white dark:bg-darkCard border-b border-gray-200 dark:border-slate-700 py-3 md:py-4 shadow-md shadow-slate-200/50 dark:shadow-none sticky top-0 z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
@@ -1394,6 +1409,21 @@
 
             doc.save(`Certificado_${nome.replace(/\s+/g, '_')}.pdf`);
         }
+
+        // Quando o navegador terminar de carregar TUDO (imagens, scripts, etc)
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+
+            // Pequeno delay de 1.5s só para a pessoa ver a marca (opcional)
+            setTimeout(() => {
+                splash.classList.add('opacity-0'); // Inicia o fade-out
+
+                // Remove do DOM para não atrapalhar cliques
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 700); // Tempo da transição do Tailwind (duration-700)
+            }, 1300);
+        });
 
     </script>
 
