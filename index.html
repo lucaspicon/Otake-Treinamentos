@@ -11,11 +11,11 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <script>
         // PERSISTÊNCIA DE TEMA
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+} else {
+    document.documentElement.classList.remove('dark');
+}
 
         tailwind.config = {
             darkMode: 'class',
